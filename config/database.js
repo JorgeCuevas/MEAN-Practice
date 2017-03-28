@@ -1,4 +1,5 @@
 module.exports = {
-	batabase : 'mongodb://localhost:27017/meanauth',
-	secret : 'yoursecret'
+	database : process.env.DATABASEURL || "mongodb://localhost/mean-app",
+	secret : 'yoursecret',
+	port: 3000
 };

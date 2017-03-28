@@ -7,13 +7,15 @@ const passport = require('passport');
 const users = require('./routers/user');
 const config = require('./config/database');
 
-const port = 3000;
+
+
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 //Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Database connection setting
 mongoose.connect(config.database);
 
 //routers 
@@ -26,6 +28,6 @@ app.get('/', (req, res) =>{
 });
 
 
-app.listen(port, (req, res) => {
-	console.log('Server started on port '+port);
+app.listen(config.port, (req, res) => {
+	console.log('Server started on port '+config.port);
 });
