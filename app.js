@@ -7,8 +7,6 @@ const passport = require('passport');
 const users = require('./routers/user');
 const config = require('./config/database');
 
-
-
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -18,6 +16,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Database connection setting
 mongoose.connect(config.database);
 
+mongoose.connection.on('connected', () => {
+	console.log('succefully connected to the datadase');
+});
+
+
+mongoose.connection.on('error', (error) => {
+	console.log('error trying to connectto the datadase'+error);
+});
+
 //routers 
 app.use('/users', users);
 
@@ -25,6 +32,7 @@ app.use('/users', users);
 //index router 
 app.get('/', (req, res) =>{
 	res.send('app runnig');
+
 });
 
 
