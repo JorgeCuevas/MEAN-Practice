@@ -12,6 +12,11 @@ app.use(cors());
 app.use(bodyParser.json());
 //Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
+//Passport setting
+app.use(passport.initialize());
+app.use(passport.session());
+require('./config/passport')(passport);
+
 
 //Database connection setting
 mongoose.connect(config.database);
