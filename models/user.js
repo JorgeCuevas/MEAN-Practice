@@ -45,3 +45,10 @@ module.exports.addUser = function(newUser, callback){
 			});
 		});
 	};
+
+module.exports.comparedPassword = function(candidatePassword, hash, callback){
+	bycrypt.compare(candidatePassword, hash, (err, isMatch) => {
+		if(err) throw err;
+		callback(null, isMatch);
+	});
+};	
