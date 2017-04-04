@@ -4,12 +4,12 @@
             
             <p id="profile-name" class="profile-name-card"></p>
             <h2 class="text-center" >Register User</h2>
-            <form class="form-signup">
-                <span id="reauth-email" class="reauth-email"></span>
-                <input type="text" name="name" class="form-control" placeholder="Name" required autofocus>
-                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-				 <input type="text"  name="username"  class="form-control" placeholder="User Name" required>
-                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <form class="form-signup" (submit)="onRegister()" >
+                <span id="reauth-email"  class="reauth-email"></span>
+                <input type="text" name="name" [(ngModel)]="name"  class="form-control" placeholder="Name"  autofocus>
+                <input type="email" name="email" [(ngModel)]="email"  class="form-control" placeholder="Email address" >
+				 <input type="text"  name="username" [(ngModel)]="username" class="form-control" placeholder="User Name" >
+                <input type="password" name="password" [(ngModel)]="password"  class="form-control" placeholder="Password" >
                 
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
             </form><!-- /form -->
