@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 
 //service
 import {ValidateService} from './services/validate/validate.service';
+import {AuthService} from './services/auth/auth.service';
 
 const appRoutes :Routes = [
   {path:'', component: HomeComponent},
@@ -42,7 +43,7 @@ const appRoutes :Routes = [
     RouterModule.forRoot(appRoutes),
 
   ],
-  providers: [ValidateService],
+  providers: [ValidateService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
