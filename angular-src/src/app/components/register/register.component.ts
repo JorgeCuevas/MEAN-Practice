@@ -30,7 +30,6 @@ export class RegisterComponent implements OnInit {
 			password : this.password
 		}
 
-
 		if(!this.validateService.validateRegister(user)){
 			console.log('Invalid User!');
 			return false;
@@ -41,7 +40,7 @@ export class RegisterComponent implements OnInit {
 			return false;
 		}
 
-		console.log('post to');
+
 		//Register
 		this.authService.registerUser(user).subscribe(data => {
 			if(data.success){
