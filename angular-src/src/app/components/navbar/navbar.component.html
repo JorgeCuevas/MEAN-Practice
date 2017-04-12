@@ -14,19 +14,17 @@
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
 			<ul class="nav navbar-nav navbar-left">
-			<li >
-				 <a routerLink="/" routerLinkActive="active" >Home</a>
-			</li>	
-				
+			<li ><a routerLink="/" routerLinkActive="active" >Home</a></li>	
 			</ul>
+
 			<ul class="nav navbar-nav navbar-right">
-			<li >
-				 <a routerLink="/login" routerLinkActive="active" >Login</a>
-			</li>	
-			<li >
-				 <a routerLink="/register" routerLinkActive="active" >Registre</a>
-			</li>	
+			<li *ngIf="isLoggedIn()" ><a routerLink="/dashboard" routerLinkActive="active" >Dashboard</a></li>	
+			<li *ngIf="isLoggedIn()" ><a  routerLink="/profile"  routerLinkActive="active" >Profile</a></li>	
+			<li *ngIf="!isLoggedIn()" ><a  routerLink="/login" routerLinkActive="active" >Login</a></li>	
+			<li *ngIf="!isLoggedIn()" ><a  routerLink="/register"  routerLinkActive="active" >Registre</a></li>	
+			<li *ngIf="isLoggedIn()" ><a href="#"  (click)="onLogoutClick()" >Logout</a></li>	
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->

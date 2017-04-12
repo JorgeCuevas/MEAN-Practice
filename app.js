@@ -40,6 +40,10 @@ app.get('/', (req, res) =>{
 
 });
 
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
 
 app.listen(config.port, (req, res) => {
 	console.log('Server started on port '+config.port);
